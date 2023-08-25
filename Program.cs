@@ -1,10 +1,14 @@
 ﻿namespace HW35
 {
-    internal class Program
+    public class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            Console.WriteLine("Hello, World!");
+            OtusDictionary otusDictionary = new OtusDictionary();
+            otusDictionary.Add(1, "Anton");
+            otusDictionary.Add(30, "Dima");
+            Console.WriteLine(otusDictionary.Get(1)+" "+otusDictionary.Get(30));
+            Console.ReadLine();
         }
     }
 }
