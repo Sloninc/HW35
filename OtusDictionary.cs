@@ -11,10 +11,38 @@ namespace HW35
         string[] _string = new string[32];
         public void Add(int key, string value)
         {
-            if (_string[key] == null)
-                _string[key] = value;
+            var keyhash = key%_string.Length;
+            if (_string[keyhash] == null)
+                _string[keyhash] = value;
             else
-                throw new Exception("элемент с таким ключом уже есть в словаре");
+            {
+                bool isWrite = false;
+                keyhash = 0;
+                while (keyhash < _string.Length)
+                {
+                    if(_string[keyhash] == null)
+                    {
+                        _string[keyhash] = value;
+                        isWrite = true;
+                        break;
+                    }
+                    keyhash++;
+                }
+                if (!isWrite)
+                {
+                    Ext();
+                    Add(keyhash, value);
+                }
+            }
+        }
+        private void Ext()
+        {
+            var temp = _string;
+            _string = new string[2 * temp.Length];
+            for (int i = 0; i < temp.Length; i++)
+            {
+                _string[i % _string.Length] = temp[i];
+            }
         }
         public string Get(int key)
         {
