@@ -11,13 +11,14 @@ namespace HW35
                 //Добавление элементов в словарь с генерацией случайных индексов и имен.
                 otusDictionary.Add(RandomNumber.Next(100), Name.First());
             }
+            //Добавление элемента, расширяющего словарь.
             otusDictionary.Add(RandomNumber.Next(100), "Victor");
             for (int i = 0; i < 33; i++)
             {
                 var name = otusDictionary.Get(i);
                 Console.WriteLine($"otusDictionary[{i}]: "+name);
             }
-            //Добавление элемента, расширяющего словарь, по индексу.
+            //Добавление элемента по индексу.
             otusDictionary[46] = "Fedor";
             Console.WriteLine(otusDictionary[46]);
             Console.ReadLine();
