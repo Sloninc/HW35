@@ -60,7 +60,7 @@ namespace HW35
             if (_string[key] != null)
                 return _string[key];
             else
-                throw new Exception($"элемент с индексом {key} не найден в словаре");
+                return $"элемент с индексом {key} не найден в словаре";
         }
     }
 }
