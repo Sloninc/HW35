@@ -8,14 +8,18 @@ namespace HW35
             OtusDictionary otusDictionary = new OtusDictionary();
             for(int i = 0; i < 32; i++)
             {
+                //Добавление элементов в словарь с генерацией случайных индексов и имен.
                 otusDictionary.Add(RandomNumber.Next(100), Name.First());
             }
             otusDictionary.Add(RandomNumber.Next(100), "Victor");
             for (int i = 0; i < 33; i++)
             {
                 var name = otusDictionary.Get(i);
-                Console.WriteLine(name);
+                Console.WriteLine($"otusDictionary[{i}]: "+name);
             }
+            //Добавление элемента, расширяющего словарь, по индексу.
+            otusDictionary[46] = "Fedor";
+            Console.WriteLine(otusDictionary[46]);
             Console.ReadLine();
         }
     }
