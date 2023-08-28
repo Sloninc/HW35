@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 namespace HW35
 {
     public class OtusDictionary
@@ -18,7 +17,7 @@ namespace HW35
         }
         public void Add(int key, string value)
         {
-            var keyhash = key%_string.Length;
+            var keyhash = Math.Abs(key)%_string.Length;
             if (_string[keyhash] == null)
                 _string[keyhash] = value;
             else //если в словаре по данному индексу уже есть элемент
@@ -38,7 +37,7 @@ namespace HW35
                 if (!isWrite) //если словарь необходимо расширить
                 {
                     Ext();
-                    Add(keyhash, value);
+                    Add(key, value);
                 }
             }
         }
@@ -55,10 +54,9 @@ namespace HW35
         }
         public string Get(int key)
         {
-            if (key < 0 || key >= _string.Length)
-                return $"Индекс {key} вне диапазона значений словаря.";
-            if (_string[key] != null)
-                return _string[key];
+            var keyhash = Math.Abs(key) % _string.Length;
+            if (_string[keyhash] != null)
+                return _string[keyhash];
             else
                 return $"элемент с индексом {key} не найден в словаре";
         }

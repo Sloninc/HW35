@@ -12,15 +12,15 @@ namespace HW35
                 otusDictionary.Add(RandomNumber.Next(100), Name.First());
             }
             //Добавление элемента, расширяющего словарь.
-            otusDictionary.Add(RandomNumber.Next(100), "Victor");
+            otusDictionary.Add(-67, "Victor");
             for (int i = 0; i < 33; i++)
             {
                 var name = otusDictionary.Get(i);
                 Console.WriteLine($"otusDictionary[{i}]: "+name);
             }
             //Добавление элемента по индексу.
-            otusDictionary[46] = "Fedor";
-            Console.WriteLine(otusDictionary[46]);
+            otusDictionary[53] = "Fedor";
+            Console.WriteLine(otusDictionary[53]);
             Console.ReadLine();
         }
     }
